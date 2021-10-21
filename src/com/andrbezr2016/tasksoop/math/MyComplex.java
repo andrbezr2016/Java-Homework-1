@@ -53,13 +53,15 @@ public class MyComplex {
     }
 
     public boolean equals(double real, double imag) {
-        return Double.compare(this.real, real) == 0 && Double.compare(this.imag, imag) == 0;
+        double eps = 1E-5;
+        return Math.abs(real - this.real) < eps && Math.abs(imag - this.imag) < eps;
     }
 
     public boolean equals(MyComplex another) {
         if (this == another) return true;
         if (another == null) return false;
-        return Double.compare(another.real, this.real) == 0 && Double.compare(another.imag, this.imag) == 0;
+        double eps = 1E-5;
+        return Math.abs(another.real - this.real) < eps && Math.abs(another.imag - this.imag) < eps;
     }
 
     public double magnitude() {

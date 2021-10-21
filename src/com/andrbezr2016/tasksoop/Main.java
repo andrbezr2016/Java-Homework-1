@@ -68,14 +68,18 @@ public class Main {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Complex==");
 
-        MyComplex myComplex1 = new MyComplex(2, -1);
-        MyComplex myComplex2 = new MyComplex(0, 0);
+        MyComplex myComplex1 = new MyComplex(2, -2);
+        MyComplex myComplex2 = new MyComplex(4, 1);
+        MyComplex myComplex3 = new MyComplex(-2, -3);
+        MyComplex myComplex4 = myComplex2.addNew(myComplex3);
+        MyComplex myComplex5 = new MyComplex(0, 0);
 
-        System.out.println("Number: " + myComplex1);
+        System.out.println(myComplex1);
         System.out.println("Magnitude: " + myComplex1.magnitude());
         System.out.println("Argument: " + myComplex1.argument());
         System.out.println("Conjugate: " + myComplex1.conjugate());
-        System.out.println("IsNaN: " + myComplex1.divide(myComplex2));
+        System.out.println("4+1i + -2-3i = " + myComplex4 + " " + myComplex4.equals(2,-2));
+        System.out.println("IsNaN: " + myComplex1.divide(myComplex5));
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Polynomial==");
 

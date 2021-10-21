@@ -36,9 +36,10 @@ public class MyTriangle {
         double e1 = v1.distance(v2);
         double e2 = v2.distance(v3);
         double e3 = v3.distance(v1);
-        if (Double.compare(e1, e2) == 0 && Double.compare(e2, e3) == 0) {
+        double eps = 1E-5;
+        if (Math.abs(e1 - e2) < eps && Math.abs(e2 - e3) < eps) {
             return "Equilateral";
-        } else if (Double.compare(e1, e2) == 0 || Double.compare(e2, e3) == 0 || Double.compare(e3, e1) == 0) {
+        } else if (Math.abs(e1 - e2) < eps || Math.abs(e2 - e3) < eps || Math.abs(e3 - e1) < eps) {
             return "Isosceles";
         } else {
             return "Scalene";
