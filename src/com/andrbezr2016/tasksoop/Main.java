@@ -1,5 +1,7 @@
 package com.andrbezr2016.tasksoop;
 
+import com.andrbezr2016.tasksoop.balls.Ball;
+import com.andrbezr2016.tasksoop.balls.Container;
 import com.andrbezr2016.tasksoop.employees.Employee;
 import com.andrbezr2016.tasksoop.figures.Circle;
 import com.andrbezr2016.tasksoop.figures.Rectangle;
@@ -78,7 +80,7 @@ public class Main {
         System.out.println("Magnitude: " + myComplex1.magnitude());
         System.out.println("Argument: " + myComplex1.argument());
         System.out.println("Conjugate: " + myComplex1.conjugate());
-        System.out.println("4+1i + -2-3i = " + myComplex4 + " " + myComplex4.equals(2,-2));
+        System.out.println("4+1i + -2-3i = " + myComplex4 + " " + myComplex4.equals(2, -2));
         System.out.println("IsNaN: " + myComplex1.divide(myComplex5));
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Polynomial==");
@@ -95,36 +97,47 @@ public class Main {
         System.out.println("Polynomial: " + myPolynomial1);
         System.out.println("Degree: " + myPolynomial1.getDegree());
         System.out.println("Evaluate: " + myPolynomial1.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial2);
         System.out.println("Degree: " + myPolynomial2.getDegree());
         System.out.println("Evaluate: " + myPolynomial2.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial3);
         System.out.println("Degree: " + myPolynomial3.getDegree());
         System.out.println("Evaluate: " + myPolynomial3.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial4);
         System.out.println("Degree: " + myPolynomial4.getDegree());
         System.out.println("Evaluate: " + myPolynomial4.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial5);
         System.out.println("Degree: " + myPolynomial5.getDegree());
         System.out.println("Evaluate: " + myPolynomial5.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial6);
         System.out.println("Degree: " + myPolynomial6.getDegree());
         System.out.println("Evaluate: " + myPolynomial6.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial7);
         System.out.println("Degree: " + myPolynomial7.getDegree());
         System.out.println("Evaluate: " + myPolynomial7.evaluate(2));
-        System.out.println("-----");
+
         System.out.println("Polynomial: " + myPolynomial8);
         System.out.println("Degree: " + myPolynomial8.getDegree());
         System.out.println("Evaluate: " + myPolynomial8.evaluate(2));
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Ball==");
-
+        Container container = new Container(0, 0, 200, 200);
+        System.out.println(container);
+        Ball ball = new Ball(100, 100, 10, 100, 90);
+        System.out.println(ball);
+        System.out.println("The ball is in the container? " + container.collides(ball));
+        ball.move();
+        System.out.println(ball);
+        System.out.println("The ball is in the container? " + container.collides(ball));
+        ball.reflectVertical();
+        ball.move();
+        System.out.println(ball);
+        System.out.println("The ball is in the container? " + container.collides(ball));
     }
 }

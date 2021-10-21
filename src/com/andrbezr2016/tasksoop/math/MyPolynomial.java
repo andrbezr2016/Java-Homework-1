@@ -32,15 +32,13 @@ public class MyPolynomial {
         for (int i = getDegree(); i >= 0; i--) {
             if (i == 0) {
                 stringBuilder.append(coeffs[i]);
-            }
-            else if (i == 1) {
+            } else if (i == 1) {
                 stringBuilder.append(coeffs[i]).append("x");
-            }
-            else {
+            } else {
                 stringBuilder.append(coeffs[i]).append("x^").append(i);
             }
 
-            if (i >= 1 && coeffs[i-1] >= 0) {
+            if (i >= 1 && coeffs[i - 1] >= 0) {
                 stringBuilder.append("+");
             }
         }
@@ -70,9 +68,9 @@ public class MyPolynomial {
             for (int j = 0; j <= i; j++) {
                 double a = 0;
                 double b = 0;
-                if (j <= this.getDegree() && i-j <= right.getDegree()) {
+                if (j <= this.getDegree() && i - j <= right.getDegree()) {
                     a = this.coeffs[j];
-                    b = right.coeffs[i-j];
+                    b = right.coeffs[i - j];
                 }
                 new_coeffs[i] += a * b;
             }

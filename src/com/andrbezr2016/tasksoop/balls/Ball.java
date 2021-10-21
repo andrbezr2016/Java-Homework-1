@@ -8,12 +8,12 @@ public class Ball {
     private float xDelta;
     private float yDelta;
 
-    public Ball(float x, float y, int radius, int speed, int direction) {
+    public Ball(float x, float y, int radius, int velocity, int direction) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.xDelta = (float) (speed*Math.cos(direction));
-        this.yDelta = (float) (-speed*Math.sin(direction));
+        this.xDelta = (float) (velocity * Math.cos(Math.toRadians(direction)));
+        this.yDelta = (float) (-velocity * Math.sin(Math.toRadians(direction)));
     }
 
     public float getX() {
@@ -71,6 +71,6 @@ public class Ball {
 
     @Override
     public String toString() {
-        return "Ball[" + "(" + x + "," + y + "),speed=(" + xDelta + "," + yDelta + ")]";
+        return "Ball[" + "(" + x + "," + y + "),velocity=(" + xDelta + "," + yDelta + ")]";
     }
 }
