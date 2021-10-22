@@ -4,43 +4,46 @@ import java.util.Arrays;
 
 public class MyPolynomial {
 
-    private double[] coeffs;
+    private final double[] coeffs;
 
     public MyPolynomial(double... coeffs) {
-        if (coeffs != null && coeffs.length > 0 && coeffs[coeffs.length - 1] == 0) {
-            int new_length = coeffs.length;
-            while (new_length > 0 && coeffs[new_length - 1] == 0) {
-                new_length--;
+        if (coeffs == null || coeffs.length == 0) {
+            this.coeffs = new double[]{0};
+        } else if (coeffs[coeffs.length - 1] == 0) {
+            int newLength = coeffs.length;
+            while (newLength > 1 && coeffs[newLength - 1] == 0) {
+                newLength--;
             }
-            this.coeffs = Arrays.copyOf(coeffs, new_length);
+            this.coeffs = Arrays.copyOf(coeffs, newLength);
         } else {
             this.coeffs = coeffs;
         }
     }
 
     public int getDegree() {
-        if (coeffs != null) {
-            return coeffs.length - 1;
-        } else {
-            return -1;
-        }
+        return coeffs.length - 1;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = getDegree(); i >= 0; i--) {
-            if (i == 0) {
-                stringBuilder.append(coeffs[i]);
-            } else if (i == 1) {
-                stringBuilder.append(coeffs[i]).append("x");
-            } else {
-                stringBuilder.append(coeffs[i]).append("x^").append(i);
-            }
+            if (coeffs[i] != 0) {
+                if (coeffs[i] > 0) {
+                    stringBuilder.append("+");
+                }
 
-            if (i >= 1 && coeffs[i - 1] >= 0) {
-                stringBuilder.append("+");
+                if (i == 0) {
+                    stringBuilder.append(coeffs[i]);
+                } else if (i == 1) {
+                    stringBuilder.append(coeffs[i]).append("x");
+                } else {
+                    stringBuilder.append(coeffs[i]).append("x^").append(i);
+                }
             }
+        }
+        if (stringBuilder.length() == 0) {
+            stringBuilder.append("0");
         }
         return stringBuilder.toString();
     }
@@ -54,17 +57,22 @@ public class MyPolynomial {
     }
 
     public MyPolynomial add(MyPolynomial right) {
-        double[] new_coeffs = this.getDegree() >= right.getDegree() ?
-                new double[this.getDegree() + 1] : new double[right.getDegree() + 1];
-        for (int i = 0; i < new_coeffs.length; i++) {
-            new_coeffs[i] = this.coeffs[i] + right.coeffs[i];
+        double[] newCoeffs = this.getDegree() >= right.getDegree() ?
+                addCalculate(right, this) : addCalculate(this, right);
+        return new MyPolynomial(newCoeffs);
+    }
+
+    private double[] addCalculate(MyPolynomial minPolynomial, MyPolynomial maxPolynomial) {
+        double[] newCoeffs = maxPolynomial.coeffs.clone();
+        for (int i = 0; i < minPolynomial.getDegree() + 1; i++) {
+            newCoeffs[i] += minPolynomial.coeffs[i];
         }
-        return new MyPolynomial(new_coeffs);
+        return newCoeffs;
     }
 
     public MyPolynomial multiply(MyPolynomial right) {
-        double[] new_coeffs = new double[this.getDegree() + right.getDegree() + 1];
-        for (int i = 0; i < new_coeffs.length; i++) {
+        double[] newCoeffs = new double[this.getDegree() + right.getDegree() + 1];
+        for (int i = 0; i < newCoeffs.length; i++) {
             for (int j = 0; j <= i; j++) {
                 double a = 0;
                 double b = 0;
@@ -72,9 +80,9 @@ public class MyPolynomial {
                     a = this.coeffs[j];
                     b = right.coeffs[i - j];
                 }
-                new_coeffs[i] += a * b;
+                newCoeffs[i] += a * b;
             }
         }
-        return new MyPolynomial(new_coeffs);
+        return new MyPolynomial(newCoeffs);
     }
 }

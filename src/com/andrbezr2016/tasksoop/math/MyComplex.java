@@ -1,7 +1,5 @@
 package com.andrbezr2016.tasksoop.math;
 
-import java.util.Objects;
-
 public class MyComplex {
 
     private double real = 0.0;

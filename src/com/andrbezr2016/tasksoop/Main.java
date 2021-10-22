@@ -85,46 +85,73 @@ public class Main {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Polynomial==");
 
-        MyPolynomial myPolynomial1 = new MyPolynomial(new double[]{0});
-        MyPolynomial myPolynomial2 = new MyPolynomial(new double[]{-1});
-        MyPolynomial myPolynomial3 = new MyPolynomial(new double[]{-1, -2});
-        MyPolynomial myPolynomial4 = new MyPolynomial(new double[]{1, 2, 3, 4});
-        MyPolynomial myPolynomial5 = new MyPolynomial(new double[]{0, 0, 3, 4});
-        MyPolynomial myPolynomial6 = new MyPolynomial(new double[]{1, 0, 0, 4, 0, 0});
-        MyPolynomial myPolynomial7 = myPolynomial4.add(myPolynomial6);
-        MyPolynomial myPolynomial8 = myPolynomial4.multiply(myPolynomial6);
+        MyPolynomial myPolynomial1 = new MyPolynomial(null);
+        myPolynomial1.add(myPolynomial1);
+        myPolynomial1.multiply(myPolynomial1);
+        MyPolynomial myPolynomial2 = new MyPolynomial(new double[]{1});
+        MyPolynomial myPolynomial3 = new MyPolynomial(new double[]{-1});
+        MyPolynomial myPolynomial4 = new MyPolynomial(new double[]{-1, -2});
+        MyPolynomial myPolynomial5 = new MyPolynomial(new double[]{1, 2, 3, 4});
+        MyPolynomial myPolynomial6 = new MyPolynomial(new double[]{0, 0, -3, 4});
+        MyPolynomial myPolynomial7 = new MyPolynomial(new double[]{1, 0, 0, -4, 0, 0});
+        MyPolynomial myPolynomial8 = myPolynomial4.add(myPolynomial7);
+        MyPolynomial myPolynomial9 = myPolynomial7.add(myPolynomial4);
+        MyPolynomial myPolynomial10 = myPolynomial2.add(myPolynomial3);
+        MyPolynomial myPolynomial11 = myPolynomial5.add(myPolynomial6);
+        MyPolynomial myPolynomial12 = myPolynomial5.multiply(myPolynomial7);
+        MyPolynomial myPolynomial13 = myPolynomial4.multiply(myPolynomial6);
 
         System.out.println("Polynomial: " + myPolynomial1);
         System.out.println("Degree: " + myPolynomial1.getDegree());
-        System.out.println("Evaluate: " + myPolynomial1.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial1.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial2);
         System.out.println("Degree: " + myPolynomial2.getDegree());
-        System.out.println("Evaluate: " + myPolynomial2.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial2.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial3);
         System.out.println("Degree: " + myPolynomial3.getDegree());
-        System.out.println("Evaluate: " + myPolynomial3.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial3.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial4);
         System.out.println("Degree: " + myPolynomial4.getDegree());
-        System.out.println("Evaluate: " + myPolynomial4.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial4.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial5);
         System.out.println("Degree: " + myPolynomial5.getDegree());
-        System.out.println("Evaluate: " + myPolynomial5.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial5.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial6);
         System.out.println("Degree: " + myPolynomial6.getDegree());
-        System.out.println("Evaluate: " + myPolynomial6.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial6.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial7);
         System.out.println("Degree: " + myPolynomial7.getDegree());
-        System.out.println("Evaluate: " + myPolynomial7.evaluate(2));
-
+        System.out.println("Evaluate (x = 2): " + myPolynomial7.evaluate(2));
+        System.out.println("====");
         System.out.println("Polynomial: " + myPolynomial8);
         System.out.println("Degree: " + myPolynomial8.getDegree());
-        System.out.println("Evaluate: " + myPolynomial8.evaluate(2));
+        System.out.println("Evaluate (x = 2): " + myPolynomial8.evaluate(2));
+        System.out.println("====");
+        System.out.println("Polynomial: " + myPolynomial9);
+        System.out.println("Degree: " + myPolynomial9.getDegree());
+        System.out.println("Evaluate (x = 2): " + myPolynomial9.evaluate(2));
+        System.out.println("====");
+        System.out.println("Polynomial: " + myPolynomial10);
+        System.out.println("Degree: " + myPolynomial10.getDegree());
+        System.out.println("Evaluate (x = 2): " + myPolynomial10.evaluate(2));
+        System.out.println("====");
+        System.out.println("Polynomial: " + myPolynomial11);
+        System.out.println("Degree: " + myPolynomial11.getDegree());
+        System.out.println("Evaluate (x = 2): " + myPolynomial11.evaluate(2));
+        System.out.println("====");
+        System.out.println("Polynomial: " + myPolynomial12);
+        System.out.println("Degree: " + myPolynomial12.getDegree());
+        System.out.println("Evaluate (x = 2): " + myPolynomial12.evaluate(2));
+        System.out.println("====");
+        System.out.println("Polynomial: " + myPolynomial13);
+        System.out.println("Degree: " + myPolynomial13.getDegree());
+        System.out.println("Evaluate (x = 2): " + myPolynomial13.evaluate(2));
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("==Ball==");
         Container container = new Container(0, 0, 200, 200);
