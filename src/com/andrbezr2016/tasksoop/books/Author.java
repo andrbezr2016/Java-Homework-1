@@ -1,9 +1,9 @@
 package com.andrbezr2016.tasksoop.books;
 
 public class Author {
-    private String name;
-    private String email;
-    private char gender;
+    private final String name;
+    private final String email;
+    private final char gender;
 
     public Author(String name, String email, char gender) {
         this.name = name;

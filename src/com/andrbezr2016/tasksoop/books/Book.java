@@ -3,8 +3,8 @@ package com.andrbezr2016.tasksoop.books;
 import java.util.Arrays;
 
 public class Book {
-    private String name;
-    private Author[] authors;
+    private final String name;
+    private final Author[] authors;
     private double price;
     private int qty = 0;
 

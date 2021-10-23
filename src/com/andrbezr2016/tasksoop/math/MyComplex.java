@@ -91,14 +91,19 @@ public class MyComplex {
     }
 
     public MyComplex multiply(MyComplex right) {
-        this.real = this.real * right.real - this.imag * right.imag;
-        this.imag = this.real * right.imag - this.imag * right.real;
+        double newReal = this.real * right.real - this.imag * right.imag;
+        double newImag = this.real * right.imag + this.imag * right.real;
+        this.real = newReal;
+        this.imag = newImag;
         return this;
     }
 
     public MyComplex divide(MyComplex right) {
-        this.real = (this.real * right.real + this.imag * right.imag) / (Math.pow(right.real, 2) + Math.pow(right.imag, 2));
-        this.imag = (this.imag * right.real - this.real * right.imag) / (Math.pow(right.real, 2) + Math.pow(right.imag, 2));
+        double divider = (Math.pow(right.real, 2) + Math.pow(right.imag, 2));
+        double newReal = (this.real * right.real + this.imag * right.imag) / divider;
+        double newImag = (this.imag * right.real - this.real * right.imag) / divider;
+        this.real = newReal;
+        this.imag = newImag;
         return this;
     }
 

@@ -2,38 +2,38 @@ package com.andrbezr2016.tasksoop.points;
 
 public class MyPoint {
 
-    private int x = 0;
-    private int y = 0;
+    private double x = 0;
+    private double y = 0;
 
     public MyPoint() {
     }
 
-    public MyPoint(int x, int y) {
+    public MyPoint(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public int[] getXY() {
-        return new int[]{x, y};
+    public double[] getXY() {
+        return new double[]{x, y};
     }
 
-    public void setXY(int x, int y) {
+    public void setXY(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -43,7 +43,7 @@ public class MyPoint {
         return "(" + x + "," + y + ")";
     }
 
-    public double distance(int x, int y) {
+    public double distance(double x, double y) {
         double xx = Math.pow(this.x - x, 2);
         double yy = Math.pow(this.y - y, 2);
         return Math.sqrt(xx + yy);
