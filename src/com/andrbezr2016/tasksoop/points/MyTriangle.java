@@ -1,5 +1,7 @@
 package com.andrbezr2016.tasksoop.points;
 
+import java.util.Objects;
+
 public class MyTriangle {
 
     private MyPoint v1;
@@ -14,9 +16,9 @@ public class MyTriangle {
     }
 
     public MyTriangle(MyPoint v1, MyPoint v2, MyPoint v3) {
-        this.v1 = v1;
-        this.v2 = v2;
-        this.v3 = v3;
+        this.v1 = Objects.requireNonNull(v1);
+        this.v2 = Objects.requireNonNull(v2);
+        this.v3 = Objects.requireNonNull(v3);
     }
 
     @Override
