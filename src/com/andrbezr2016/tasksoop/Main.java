@@ -205,5 +205,50 @@ public class Main {
         System.out.println("*Set xDelta = 10 and yDelta = -10 + move ball!");
         System.out.println(ball);
         System.out.println("The ball is in the container? " + container.collides(ball));
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("==Equals and HashCode==");
+        Circle cir1 = new Circle(10, "cyan");
+        Circle cir2 = new Circle(10, "cyan");
+        System.out.println("Circle: " + cir1.equals(cir2));
+
+        Rectangle rec1 = new Rectangle(2, 5);
+        Rectangle rec2 = new Rectangle(2, 5);
+        System.out.println("Rectangle: " + rec1.equals(rec2));
+
+        Employee emp1 = new Employee(1, "Petr", "Petrov", 30000);
+        Employee emp2 = new Employee(1, "Petr", "Petrov", 30000);
+        System.out.println("Employee: " + emp1.equals(emp2));
+
+        Author aut1 = new Author("Ivan", "Petrov", 'f');
+        Author aut2 = new Author("Ivan", "Petrov", 'f');
+        System.out.println("Author: " + aut1.equals(aut2));
+
+        Book book1 = new Book("Book", new Author[]{}, 500);
+        Book book2 = new Book("Book", new Author[]{aut2}, 500);
+        System.out.println("Book: " + book1.equals(book2));
+
+        MyPoint pt1 = new MyPoint(10.8, -1.9);
+        MyPoint pt2 = new MyPoint(10.8, -1.9);
+        System.out.println("MyPoint: " + pt1.equals(pt2));
+
+        MyTriangle tri1 = new MyTriangle(1, 2, 3, 4, 5, 6);
+        MyTriangle tri2 = new MyTriangle(1, 2, 3, 4, 5, 6);
+        System.out.println("MyTriangle: " + tri1.equals(tri2));
+
+        MyComplex com1 = new MyComplex(9.45, -6.56);
+        MyComplex com2 = new MyComplex(9.45, -6.56);
+        System.out.println("MyComplex: " + com1.equals(com2));
+
+        MyPolynomial pol1 = new MyPolynomial(1, 2, 3, 4, 5, 6);
+        MyPolynomial pol2 = new MyPolynomial(1, 2, 3, 4, 5, 6);
+        System.out.println("MyPolynomial: " + pol1.equals(pol2));
+
+        Ball bl1 = new Ball(100, 100, 10, 30, -30);
+        Ball bl2 = new Ball(100, 100, 10, 30, -30);
+        System.out.println("Ball: " + bl1.equals(bl2));
+
+        Container cont1 = new Container(0, 0, 1000, 1000);
+        Container cont2 = new Container(0, 0, 1000, 1000);
+        System.out.println("Container: " + cont1.equals(cont2));
     }
 }

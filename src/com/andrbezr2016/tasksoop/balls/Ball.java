@@ -1,5 +1,7 @@
 package com.andrbezr2016.tasksoop.balls;
 
+import java.util.Objects;
+
 public class Ball {
 
     private float x;
@@ -72,5 +74,28 @@ public class Ball {
     @Override
     public String toString() {
         return "Ball[" + "(" + x + "," + y + "),velocity=(" + xDelta + "," + yDelta + ")]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return Float.compare(this.x, ball.x) == 0
+                && Float.compare(this.y, ball.y) == 0
+                && this.radius == ball.radius
+                && Float.compare(this.xDelta, ball.xDelta) == 0
+                && Float.compare(this.yDelta, ball.yDelta) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Float.hashCode(x);
+        result = 31 * result + Float.hashCode(y);
+        result = 31 * result + radius;
+        result = 31 * result + Float.hashCode(xDelta);
+        result = 31 * result + Float.hashCode(yDelta);
+        return result;
     }
 }

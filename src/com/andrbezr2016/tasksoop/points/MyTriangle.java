@@ -30,6 +30,25 @@ public class MyTriangle {
                 "]";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyTriangle triangle = (MyTriangle) o;
+        return this.v1.equals(triangle.v1)
+                && this.v2.equals(triangle.v2)
+                && this.v3.equals(triangle.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + v1.hashCode();
+        result = 31 * result + v2.hashCode();
+        result = 31 * result + v3.hashCode();
+        return result;
+    }
+
     public double getPerimeter() {
         return v1.distance(v2) + v2.distance(v3) + v3.distance(v1);
     }

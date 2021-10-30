@@ -1,5 +1,7 @@
 package com.andrbezr2016.tasksoop.math;
 
+import java.util.Objects;
+
 public class MyComplex {
 
     private double real = 0.0;
@@ -60,6 +62,22 @@ public class MyComplex {
         if (another == null) return false;
         double eps = 1E-5;
         return Math.abs(another.real - this.real) < eps && Math.abs(another.imag - this.imag) < eps;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyComplex myComplex = (MyComplex) o;
+        return Double.compare(this.real, myComplex.real) == 0 && Double.compare(this.imag, myComplex.imag) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(real);
+        result = 31 * result + Double.hashCode(imag);
+        return result;
     }
 
     public double magnitude() {

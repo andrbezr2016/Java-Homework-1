@@ -1,6 +1,7 @@
 package com.andrbezr2016.tasksoop.books;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Book {
     private final String name;
@@ -9,15 +10,13 @@ public class Book {
     private int qty = 0;
 
     public Book(String name, Author[] authors, double price) {
-        this.name = name;
-        this.authors = authors;
+        this.name = Objects.requireNonNull(name);
+        this.authors = Objects.requireNonNull(authors);
         this.price = price;
     }
 
     public Book(String name, Author[] authors, double price, int qty) {
-        this.name = name;
-        this.authors = authors;
-        this.price = price;
+        this(name, authors, price);
         this.qty = qty;
     }
 
@@ -54,6 +53,27 @@ public class Book {
                 ",price=" + price +
                 ",qty=" + qty +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Double.compare(this.price, book.price) == 0
+                && this.qty == book.qty
+                && this.name.equals(book.name)
+                && Arrays.equals(this.authors, book.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(price);
+        result = 31 * result + qty;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + Arrays.hashCode(authors);
+        return result;
     }
 
     public String getAuthorNames() {

@@ -1,5 +1,7 @@
 package com.andrbezr2016.tasksoop.points;
 
+import java.util.Objects;
+
 public class MyPoint {
 
     private double x = 0;
@@ -47,6 +49,22 @@ public class MyPoint {
         double xx = Math.pow(this.x - x, 2);
         double yy = Math.pow(this.y - y, 2);
         return Math.sqrt(xx + yy);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyPoint point = (MyPoint) o;
+        return Double.compare(this.x, point.x) == 0 && Double.compare(this.y, point.y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(x);
+        result = 31 * result + Double.hashCode(y);
+        return result;
     }
 
     public double distance(MyPoint another) {
